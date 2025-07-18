@@ -354,4 +354,128 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
+}
+
+.footer {
+  padding: 30px 0 60px;
+  background-color: #ab8261;
+}
+.footer__info {
+  display: grid;
+  grid-template-columns: 0.9fr 0.9fr 0.9fr auto;
+}
+.footer__logo-img {
+  max-width: 241px;
+}
+.footer__logo-text {
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff9f4;
+  margin-bottom: 20px;
+}
+.footer__social {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 15px;
+       column-gap: 15px;
+}
+.footer__social-link {
+  transition: all 0.6s;
+}
+.footer__social-link:hover path {
+  fill: #ff9138;
+}
+.footer__nav {
+  padding-top: 30px;
+}
+.footer__nav-item {
+  margin-bottom: 20px;
+}
+.footer__nav-link {
+  z-index: 2;
+  position: relative;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff9f4;
+}
+.footer__nav-link::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -13px;
+  width: 34px;
+  height: 34px;
+  background-color: #ffa55c;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.6s;
+}
+.footer__nav-link:hover::before {
+  opacity: 1;
+}
+.footer__location {
+  padding-top: 30px;
+}
+.footer__location-time {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+  margin-bottom: 10px;
+}
+.footer__location-mode {
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  color: #fff9f4;
+}
+.footer__location-local {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 4px;
+       column-gap: 4px;
+}
+.footer__location-adress {
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff9f4;
+  font-family: "Montserrat", sans-serif;
+}
+.footer__contact {
+  padding-top: 30px;
+}
+.footer__contact-text {
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff9f4;
+  margin-bottom: 8px;
+  font-family: "Montserrat", sans-serif;
+}
+.footer__contact-phone {
+  display: block;
+  font-weight: 500;
+  font-size: 24px;
+  color: #fff9f4;
+  line-height: 1.6;
+  text-transform: uppercase;
+  margin-bottom: 47px;
+}
+.footer__contact-wrapper {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+}
+.footer__contact-copy {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #dec5b1;
 }/*# sourceMappingURL=styles.css.map */
