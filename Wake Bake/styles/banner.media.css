@@ -21,7 +21,7 @@
 }
 @media (max-width: 620px) {
   .content__block {
-    padding-right: 10px;
+    padding-right: 33px;
   }
 }
 @media (max-width: 610px) {
@@ -33,20 +33,10 @@
     bottom: unset;
   }
 }
-@media (max-width: 559px) {
-  .content__play {
-    margin-left: 40px;
-  }
-}
 @media (max-width: 610px) {
   .content__play-wrapper {
     width: 60px;
     height: 60px;
-  }
-}
-@media (max-width: 610px) {
-  .content__play-text {
-    max-width: 206px;
   }
 }
 @media (max-width: 600px) {
@@ -58,11 +48,6 @@
 @media (max-width: 1151px) {
   .content__img {
     max-width: 300px;
-  }
-}
-@media (max-width: 570px) {
-  .content__img {
-    max-width: 230px;
   }
 }
 @media (max-width: 362px) {
@@ -98,7 +83,15 @@
 @media (max-width: 600px) {
   .content__title {
     max-width: 300px;
-    font-size: 30px;
+    font-size: 38px;
+  }
+}
+@media (max-width: 600px) {
+  .content__text {
+    font-weight: 400;
+    font-size: 14px;
+    max-width: 296px;
+    margin-bottom: 30px;
   }
 }
 @media (max-width: 1024px) {
@@ -106,6 +99,17 @@
     max-width: 289px;
     width: 100%;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .banner {
+    padding-bottom: 100px;
+  }
+}
+@media (max-width: 630px) {
+  .banner {
+    padding-bottom: 60px;
   }
 }
 
@@ -127,15 +131,15 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 928px) {
   .header {
     margin-bottom: 0;
-    padding: 0;
   }
 }
 @media (max-width: 900px) {
   .header {
-    max-width: 600px;
+    padding: 0;
+    max-width: 740px;
     margin: 0 auto;
   }
 }
@@ -163,5 +167,152 @@
 @media (max-width: 900px) {
   .header__logo-img {
     max-width: 140px;
+  }
+}
+
+@media (max-width: 1288px) {
+  .learning__container {
+    justify-content: center;
+  }
+}
+@media (max-width: 1153px) {
+  .learning__container {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-top: 85px;
+  }
+}
+@media (max-width: 1288px) {
+  .learning__block {
+    padding-right: 130px;
+  }
+}
+@media (max-width: 1153px) {
+  .learning__block {
+    order: 2;
+    padding: 410px 274px 25px 30px;
+  }
+}
+@media (max-width: 640px) {
+  .learning__block {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+@media (max-width: 640px) {
+  .learning__block-wrapper {
+    position: absolute;
+    left: 1%;
+    bottom: -26%;
+  }
+}
+@media (max-width: 1153px) {
+  .learning__academy-blog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+}
+@media (max-width: 660px) {
+  .learning__academy-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+@media (max-width: 1153px) {
+  .learning__academy-paragraph {
+    font-size: 14px;
+    text-align: center;
+    max-width: 509px;
+  }
+}
+@media (max-width: 550px) {
+  .learning__academy-paragraph {
+    text-align: center;
+    max-width: 309px;
+  }
+}
+@media (max-width: 1153px) {
+  .learning__academy-title {
+    text-align: center;
+  }
+}
+@media (max-width: 1153px) {
+  .learning__academy-text {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+}
+@media (max-width: 700px) {
+  .learning__academy-wrapper {
+    padding-left: 71.5px;
+    max-width: 400px;
+  }
+}
+@media (max-width: 490px) {
+  .learning__academy-wrapper {
+    padding: 10px 10px 10px 26px;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 1140px) {
+  .footer__info {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.7fr;
+    justify-content: space-between;
+    gap: 30px;
+  }
+  .footer__info > .footer__section:first-child {
+    grid-column: 1/-1;
+  }
+  .footer__section--socials, .footer__section--nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 1140px) {
+  .footer {
+    padding: 10px 0 20px;
+  }
+  .footer__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+  .footer__location {
+    padding-top: 0px;
+  }
+  .footer__location-time {
+    margin-bottom: 1px;
+    justify-content: center;
+  }
+  .footer__nav {
+    padding-top: 0px;
+  }
+  .footer__nav-item {
+    margin-bottom: 2px;
+  }
+  .footer__contact {
+    padding-top: 0px;
+  }
+  .footer__contact-text {
+    margin-bottom: 1px;
+  }
+  .footer__contact-phone {
+    margin-bottom: 14px;
+  }
+  .footer__logo-text {
+    margin-bottom: 3px;
   }
 }/*# sourceMappingURL=banner.media.css.map */

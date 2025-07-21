@@ -261,7 +261,7 @@
 }
 
 .learning {
-  display: none;
+  display: block;
 }
 .learning__container {
   margin: 0 auto;
@@ -274,7 +274,6 @@
   background: url(../Pictures/sect-learning/cook_girl.jpg) center/cover no-repeat;
   padding: 410px 274px 25px 30px;
   border-radius: 20px;
-  min-height: 543px;
   max-width: 603px;
 }
 .learning__block-wrapper {
@@ -282,6 +281,7 @@
   align-items: center;
   border-radius: 20px;
   max-width: 299px;
+  width: 100%;
   -moz-column-gap: 10px;
        column-gap: 10px;
   padding: 15px 20px;
@@ -324,6 +324,7 @@
   margin-bottom: 30px;
 }
 .learning__academy-wrapper {
+  width: 100%;
   display: flex;
   align-items: center;
   -moz-column-gap: 15px;
