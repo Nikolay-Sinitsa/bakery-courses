@@ -83,7 +83,9 @@
               За 8 практических занятий ты получишь новые возможности
               для самореализации и любимое дело
             </p>
-            <button href="#nameUser"  class="content__button">Записаться на курс</button>
+            <button onclick="scrollToForm()" class="content__button">
+              Записаться на курс
+            </button>
           </div>
           <div class="content__block">
             <div class="content__img--wrapper">
@@ -125,7 +127,7 @@
       <div class="container learning__container">
         <div class="learning__block">
           <div class="learning__block-wrapper">
-            <button class="learning__block-present">
+            <button id="openGift" class="learning__block-present">
               <div class="learning__block-presents">
                 <a href="#"
                   ><img src="./media/sect-learning/present.png" alt=""
@@ -146,7 +148,7 @@
                 />
               </div>
               <div class="recipe__close">
-                <button class="recipe__wrapper">
+                <button id="closeGift" class="recipe__wrapper">
                   <img
                     class="recipe__img"
                     src="./media/recipe/Vector.svg"
@@ -177,7 +179,7 @@
           <div class="learning__academy-blog">
             <h1 class="learning__academy-title">Наша школа —</h1>
             <p class="learning__academy-text">
-              это уютный дом для начинающих кондитеров
+              это уютный дом для начинающих кондитеров!
             </p>
             <p class="learning__academy-paragraph">
               С нами ты погрузишься в удивительный мир кондитерского искусства,
@@ -322,7 +324,7 @@
       </div>
     </section>
 
-    <section class="application">
+    <section id="applicationForm" class="application">
       <div class="container application__container">
         <div class="application__wrapper">
           <div class="application__cake">
@@ -358,14 +360,14 @@
               <div class="application__checkbox">
                 <label>
                   <input type="checkbox" required />
-                  Нажимая на кнопку, вы соглашаетесь<br><span
+                  Нажимая на кнопку, вы соглашаетесь<br /><span
                     >с <a href="#">политикой конфиденциальности</a></span
                   >
                 </label>
               </div>
 
               <button type="submit" class="application__button">
-                записаться на курс
+                Записаться на курс
               </button>
             </form>
           </div>

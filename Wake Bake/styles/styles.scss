@@ -13,7 +13,6 @@
   background: url(../media/header/header_banner_pict.png) 50% 100% / cover
     no-repeat;
   padding: 0 0 140px;
- 
 }
 
 .header {
@@ -87,9 +86,9 @@
     justify-content: center;
     align-items: center;
     gap: 7px;
-    width: 40px;
-    height: 40px;
-    background: #fff9f4;
+    width: 35px;
+    height: 35px;
+    background: #efe8e37d;
     border-radius: 4px;
     position: relative;
     z-index: 1100;
@@ -296,7 +295,6 @@
 .learning {
   position: relative;
   display: block;
-  
 
   &__container {
     margin: 0 auto;
@@ -417,6 +415,7 @@
   }
 }
 .recipe {
+  z-index: 1106;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -425,10 +424,17 @@
   height: 100vh;
   position: fixed;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
   transition: opacity 0.4s ease;
   top: 0;
   left: 0;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
   &__block {
     position: relative;
     background-color: #ffffff;
@@ -456,10 +462,7 @@
     border-radius: 67px;
     width: 24px;
     height: 24px;
-    padding: 1.5px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 5px 0;
     margin-bottom: 89px;
   }
   &__img {
@@ -491,6 +494,9 @@
       height: 62px;
       width: 308px;
       margin-bottom: 10px;
+      &:hover {
+        border: 1px solid #ffa55c;
+      }
       &::placeholder {
         font-weight: 400;
         font-size: 16px;
@@ -518,7 +524,6 @@
 .footer {
   padding: 30px 0 60px;
   background-color: #ab8261;
-  
 
   &__info {
     display: grid;
@@ -652,10 +657,10 @@
 }
 
 .application {
-  background: url(../media/sect-application/fon-banner.jpg) 50% 100% /cover no-repeat;
+  background: url(../media/sect-application/fon-banner.jpg) 50% 100% / cover
+    no-repeat;
   padding: 123px 328px 137px 313px;
   &__container {
-
   }
   &__wrapper {
     max-width: 1279px;
@@ -672,8 +677,8 @@
     width: 574px;
     height: 404px;
     &-cake {
-     width: 574px;
-    height: 404px;
+      width: 574px;
+      height: 404px;
       flex-shrink: 0;
     }
   }
@@ -702,7 +707,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    
+
     &-tel {
       margin-bottom: 20px;
     }
@@ -738,9 +743,7 @@
   }
 
   &__checkbox {
-    
-     margin-bottom: 20px;
-
+    margin-bottom: 20px;
   }
   &__checkbox label {
     font-weight: 400;
@@ -750,16 +753,15 @@
     font-family: "Montserrat", sans-serif;
     width: 100%;
     max-width: 267px;
-    
+
     margin-bottom: 10px;
-    
+
     a {
       text-decoration: underline;
     }
-    span{
+    span {
       padding-left: 21px;
     }
-   
   }
   &__button {
     color: #312c27;
@@ -773,5 +775,8 @@
     line-height: 1.6;
     text-align: center;
     transition: background-color 0.5s ease;
+    &:hover {
+      background-color: #ff9138;
+    }
   }
 }
