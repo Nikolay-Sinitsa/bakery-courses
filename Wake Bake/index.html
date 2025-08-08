@@ -94,7 +94,7 @@
                 src="./media/header/header__women__pict.png"
                 alt="girl"
               />
-              <div id="video-overlay" class="video-overlay is-hidden">
+              <div id="video-overlay">
                 <div class="video-container">
                   <video controls>
                     <source src="./Video/cake.mp4" type="video/mp4" />
@@ -163,13 +163,17 @@
                 Оставь свой e-mail, и мы вышлем рецепт на почту
               </p>
               <form action="#" method="post" class="recipe__form">
-                <input
-                  type="email"
-                  placeholder="E-mail"
-                  class="recipe__form--input"
-                  name="email"
-                  required
-                />
+                <div class="recipe__form-field">
+                  <input
+                    type="email"
+                    id="giftEmail"
+                    class="recipe__form-input"
+                    name="email"
+                    required
+                    placeholder=" "
+                  />
+                  <label for="giftEmail" class="recipe__form-label"></label>
+                </div>
               </form>
               <button class="recipe__button">Получить подарок</button>
             </div>
@@ -345,18 +349,28 @@
               ближайшее время
             </p>
             <form action="#" method="post" class="application__form">
-              <label class="application__form-hidden" for="nameUser">Имя</label>
-              <input type="text" id="nameUser" placeholder="имя" required />
-              <label class="application__form-hidden" for="telUser"
-                >Телефон</label
-              >
-              <input
-                type="number"
-                class="application__form-tel"
-                id="telUser"
-                placeholder="телефон"
-                required
-              />
+              <div class="application__form-field">
+                <input
+                  type="text"
+                  id="nameUser"
+                  class="application__form-input"
+                  placeholder=" "
+                  required
+                />
+                <label for="nameUser" class="application__form-label"></label>
+              </div>
+
+              <div class="application__form-field">
+                <input
+                  type="number"
+                  id="telUser"
+                  class="application__form-input application__form-tel"
+                  placeholder=" "
+                  required
+                />
+                <label for="telUser" class="application__form-label"></label>
+              </div>
+
               <div class="application__checkbox">
                 <label>
                   <input type="checkbox" required />
