@@ -6,10 +6,7 @@
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./Font/fonts.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
-    <link rel="stylesheet" href="./styles/media.css" />
-    <link rel="stylesheet" href="./styles//footer.media.css" />
-    <link rel="stylesheet" href="./styles/video/video.css" />
-    <link rel="stylesheet" href="video.cake.css" />
+
     <title>WkeBake</title>
   </head>
   <body>
@@ -94,19 +91,14 @@
                 src="./media/header/header__women__pict.png"
                 alt="girl"
               />
-              <div id="video-overlay">
-                <div class="video-container">
-                  <video controls>
-                    <source src="./Video/cake.mp4" type="video/mp4" />
-                    Видо нет
-                  </video>
-                  <span class="video-close">×</span>
-                </div>
-              </div>
+
               <div class="content__play">
-                <button class="content__play-wrapper">
+                <button id="playContent" class="content__play-wrapper">
                   <div class="content__play-circle">
-                    <a id="video-trigger" href=""
+                    <a
+                      data-fslightbox="gallery"
+                      id="video-trigger"
+                      href="./media/video_cake/cake.mp4"
                       ><img
                         class="content__svg"
                         src="./media/header/svg/video__play.svg"
@@ -523,8 +515,8 @@
       </div>
     </footer>
 
+    <script src="./script/fslightbox.js"></script>
     <script src="./script/burger.js"></script>
-    <script src="./script/video.banner.js"></script>
     <script src="./script/main.js"></script>
   </body>
 </html>
