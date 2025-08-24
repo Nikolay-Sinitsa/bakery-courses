@@ -23,79 +23,101 @@ recipeModal.addEventListener("click", (event) => {
     }
 });
 
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        recipeModal.classList.remove("active");
+document.addEventListener('DOMContentLoaded', function () {
+
+    const tabLinks = document.querySelectorAll('.programm__link');
+    const allTabs = document.querySelectorAll('.accordeon');
+
+    function switchTab(tabId) {
+
+        const allContents = document.querySelectorAll('.accordeon__content');
+        const allIcons = document.querySelectorAll('.accordeon__button-img');
+        const allSvgs = document.querySelectorAll('.accordeon__button svg');
+
+        allContents.forEach(content => {
+            content.classList.remove('open');
+            content.style.maxHeight = null;
+        });
+
+        allIcons.forEach(icon => {
+            icon.classList.remove('active');
+        });
+
+        allSvgs.forEach(svg => {
+            svg.classList.remove('rotated');
+        });
+
+
+        allTabs.forEach(tab => {
+            tab.style.display = 'none';
+        });
+
+
+        const activeTab = document.getElementById(tabId);
+        if (activeTab) {
+            activeTab.style.display = 'flex';
+        }
+
+        tabLinks.forEach(link => {
+            link.parentElement.classList.remove('programm__item--active');
+            if (link.getAttribute('href') === `#${tabId}`) {
+                link.parentElement.classList.add('programm__item--active');
+            }
+        });
     }
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    const weekItems = document.querySelectorAll(".programm__item");
-    const weekTabs = document.querySelectorAll(".accordeon");
 
-    weekItems.forEach(weekItem => {
-        weekItem.addEventListener("click", (event) => {
-            event.preventDefault();
-
-            weekItems.forEach(item => item.classList.remove("programm__item--active"));
-            weekTabs.forEach(tab => tab.classList.remove("accordeon--active"));
-
-            weekItem.classList.add("programm__item--active");
-
-            const linkElement = weekItem.querySelector(".programm__link");
-            const targetId = linkElement.getAttribute("href").replace("#", "");
-            const targetTab = document.getElementById(targetId);
-
-            if (targetTab) {
-                targetTab.classList.add("accordeon--active");
-            }
+    tabLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const tabId = this.getAttribute('href').substring(1);
+            switchTab(tabId);
         });
     });
 
-    const closeAccordeonsInBlock = (accordeonBlock) => {
-        accordeonBlock.querySelectorAll(".accordeon__content").forEach(contentElement => {
-            contentElement.classList.remove("open");
-            contentElement.style.cssText = "max-height:0;padding:0;margin-top:0;opacity:0;visibility:hidden;";
-        });
+    const accordeonWrappers = document.querySelectorAll('.accordeon__wrapper');
 
-        accordeonBlock.querySelectorAll(".accordeon__button-img").forEach(imageElement => {
-            imageElement.classList.remove("active");
-            const arrowIcon = imageElement.querySelector("svg");
-            if (arrowIcon) arrowIcon.classList.remove("rotated");
-        });
-    };
+    accordeonWrappers.forEach((wrapper) => {
+        wrapper.addEventListener('click', (e) => {
 
-    document.querySelectorAll(".accordeon").forEach(accordeonBlock => {
-        new MutationObserver(mutations => {
-            if (accordeonBlock.classList.contains("accordeon--active")) {
-                closeAccordeonsInBlock(accordeonBlock);
-            }
-        }).observe(accordeonBlock, { attributes: true });
-    });
+            const accordeonButton = e.target.closest('.accordeon__button');
+            if (!accordeonButton) return;
 
-    document.querySelectorAll(".accordeon__button").forEach(buttonElement => {
-        buttonElement.addEventListener("click", () => {
-            const wrapperElement = buttonElement.closest(".accordeon__wrapper");
-            const contentElement = wrapperElement.querySelector(".accordeon__content");
-            const imageElement = buttonElement.querySelector(".accordeon__button-img");
-            const arrowIcon = imageElement.querySelector("svg");
 
-            const isAlreadyOpen = contentElement.classList.contains("open");
+            const content = accordeonButton.nextElementSibling;
+            const icon = accordeonButton.querySelector('.accordeon__button-img');
+            const svg = accordeonButton.querySelector('svg');
 
-            if (isAlreadyOpen) {
-                contentElement.classList.remove("open");
-                contentElement.style.cssText = "max-height:0;padding:0;margin-top:0;opacity:0;visibility:hidden;";
-                imageElement.classList.remove("active");
-                if (arrowIcon) arrowIcon.classList.remove("rotated");
+
+            const currentAccordeon = wrapper.closest('.accordeon');
+            const allWrappersInTab = currentAccordeon.querySelectorAll('.accordeon__wrapper');
+
+            allWrappersInTab.forEach(otherWrapper => {
+                if (otherWrapper !== wrapper) {
+                    const otherContent = otherWrapper.querySelector('.accordeon__content');
+                    const otherIcon = otherWrapper.querySelector('.accordeon__button-img');
+                    const otherSvg = otherWrapper.querySelector('svg');
+
+                    otherContent.classList.remove('open');
+                    otherIcon.classList.remove('active');
+                    otherSvg.classList.remove('rotated');
+                    otherContent.style.maxHeight = null;
+                }
+            });
+
+
+            content.classList.toggle('open');
+            icon.classList.toggle('active');
+            svg.classList.toggle('rotated');
+
+            if (content.classList.contains('open')) {
+                content.style.maxHeight = (content.scrollHeight + 40) + 'px';
             } else {
-                const parentAccordeonBlock = buttonElement.closest(".accordeon");
-                closeAccordeonsInBlock(parentAccordeonBlock);
-
-                contentElement.classList.add("open");
-                contentElement.style.cssText = `max-height:${contentElement.scrollHeight + 40}px;padding:0px 30px 40px 30px;margin-top:-20px;opacity:1;visibility:visible;`;
-                imageElement.classList.add("active");
-                if (arrowIcon) arrowIcon.classList.add("rotated");
+                content.style.maxHeight = null;
             }
         });
     });
-});
+
+
+    switchTab('tabOne');
+}); 

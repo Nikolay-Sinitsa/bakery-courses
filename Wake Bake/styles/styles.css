@@ -587,6 +587,10 @@
   margin-bottom: 40px;
 }
 .accordeon--active {
+  max-height: 900px;
+  margin-top: -20px;
+  opacity: 1;
+  visibility: visible;
   display: flex;
 }
 .accordeon__wrapper {
@@ -604,6 +608,15 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  cursor: pointer;
+}
+.accordeon__button:hover .accordeon__button-img {
+  background: #ffa55c;
+}
+.accordeon__button:hover .accordeon__button-img svg {
+  transition: all 0.5s ease;
+  stroke: #ffffff;
+  transform: rotate(90deg);
 }
 .accordeon__button-title {
   font-family: "Gabriola", sans-serif;
@@ -614,7 +627,7 @@
   text-align: left;
 }
 .accordeon__button-img {
-  transition: transform 0.4s ease;
+  transition: all 0.4s ease;
   padding: 11.02px 11.23px 11.02px 11.52px;
   border-radius: 100px;
   background: #fff9f4;
@@ -628,37 +641,30 @@
 }
 .accordeon__button-img.active svg {
   stroke: #ffffff;
+  transform: rotate(90deg);
 }
 .accordeon__button-img svg {
-  transition: transform 0.6s ease, stroke 0.5s ease;
+  transition: all 0.4s ease;
   width: 13.25px;
   height: 13.97px;
-}
-.accordeon__button-img svg.rotated {
-  transform: rotate(90deg);
-}
-.accordeon__button:hover .accordeon__button-img {
-  background: #ffa55c;
-}
-.accordeon__button:hover .accordeon__button-img svg {
-  stroke: #ffffff;
-  transform: rotate(90deg);
 }
 .accordeon__content {
   display: flex;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease;
+  transition: max-height 0.5s ease, opacity 0.9s ease, padding 0.9s ease, margin-top 0.9s ease;
   padding: 0;
   margin-top: 0;
   opacity: 0;
   visibility: hidden;
 }
 .accordeon__content.open {
-  padding: 0px 30px 0px 30px;
+  padding: 0px 30px 40px;
   margin-top: -20px;
   opacity: 1;
   visibility: visible;
+  max-height: none !important;
+  overflow: visible;
 }
 .accordeon__content-theory {
   max-width: 507px;
@@ -1436,6 +1442,11 @@
     gap: 15px;
   }
 }
+@media (max-width: 661px) {
+  .accordeon__content.open {
+    padding: 20px 30px 20px;
+  }
+}
 @media (max-width: 700px) {
   .accordeon__content {
     gap: 20px;
@@ -1476,7 +1487,6 @@
 @media (max-width: 900px) {
   .accordeon__button {
     padding: 17px 30px;
-    margin-bottom: 7px;
   }
 }
 @media (max-width: 670px) {
