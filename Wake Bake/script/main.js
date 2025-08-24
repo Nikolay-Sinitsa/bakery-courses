@@ -60,26 +60,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // //acc
 
-document.addEventListener("DOMContentLoaded", () => {
-    const closeAllAccordeons = () => {
-        document.querySelectorAll(".accordeon__content").forEach(c => c.style.display = "none");
-        document.querySelectorAll(".accordeon__button-img").forEach(i => i.classList.remove("active"));
-        document.querySelectorAll(".accordeon__button-img svg").forEach(a => a.classList.remove("rotated"));
-    };
 
+document.addEventListener("DOMContentLoaded", () => {
+
+    const closeAccordeonsIn = (container) => {
+        container.querySelectorAll(".accordeon__content").forEach(content => {
+            content.classList.remove("open");
+            content.style.maxHeight = null;
+            content.style.padding = "0";
+            content.style.marginTop = "0";
+            content.style.opacity = "0";
+            content.style.visibility = "hidden";
+        });
+
+        container.querySelectorAll(".accordeon__button-img").forEach(img => {
+            img.classList.remove("active");
+            const arrow = img.querySelector("svg");
+            if (arrow) arrow.classList.remove("rotated");
+        });
+    };
 
     document.querySelectorAll(".accordeon").forEach(tab => {
         new MutationObserver(mutations => {
             mutations.forEach(mutation => {
                 if (mutation.type === "attributes" && mutation.attributeName === "class") {
                     if (tab.classList.contains("accordeon--active")) {
-                        closeAllAccordeons();
+                        closeAccordeonsIn(tab);
                     }
                 }
             });
         }).observe(tab, { attributes: true });
     });
-
 
     document.querySelectorAll(".accordeon__button").forEach(button => {
         button.addEventListener("click", () => {
@@ -88,11 +99,32 @@ document.addEventListener("DOMContentLoaded", () => {
             const img = button.querySelector(".accordeon__button-img");
             const arrow = img.querySelector("svg");
 
-            const isOpen = content.style.display === "flex";
+            const isOpen = content.classList.contains("open");
 
-            content.style.display = isOpen ? "none" : "flex";
-            img.classList.toggle("active", !isOpen);
-            arrow.classList.toggle("rotated", !isOpen);
+            if (isOpen) {
+                content.classList.remove("open");
+                content.style.maxHeight = null;
+                content.style.padding = "0";
+                content.style.marginTop = "0";
+                content.style.opacity = "0";
+                content.style.visibility = "hidden";
+                img.classList.remove("active");
+                arrow.classList.remove("rotated");
+            } else {
+
+                const parentAccordeon = button.closest(".accordeon");
+                closeAccordeonsIn(parentAccordeon);
+
+
+                content.classList.add("open");
+                content.style.maxHeight = content.scrollHeight + 40 + "px";
+                content.style.padding = "0px 30px 40px 30px";
+                content.style.marginTop = "-20px";
+                content.style.opacity = "1";
+                content.style.visibility = "visible";
+                img.classList.add("active");
+                arrow.classList.add("rotated");
+            }
         });
     });
 });

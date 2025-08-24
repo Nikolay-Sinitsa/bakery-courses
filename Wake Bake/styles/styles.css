@@ -595,6 +595,8 @@
   border-radius: 20px;
 }
 .accordeon__button {
+  flex-shrink: 0;
+  box-sizing: border-box;
   border-radius: 20px;
   padding: 40px 30px;
   background: #fff9f4;
@@ -643,10 +645,20 @@
   transform: rotate(90deg);
 }
 .accordeon__content {
-  display: none;
-  gap: 80px;
+  display: flex;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  padding: 0;
+  margin-top: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.accordeon__content.open {
+  padding: 0px 30px 0px 30px;
   margin-top: -20px;
-  padding: 0px 30px 40px 30px;
+  opacity: 1;
+  visibility: visible;
 }
 .accordeon__content-theory {
   max-width: 507px;
