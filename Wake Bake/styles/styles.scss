@@ -1514,7 +1514,7 @@
   &__content {
     @media (max-width: 700px) {
       gap: 20px;
-      padding: 15px 3px 22px 17px;
+      // padding: 15px 3px 22px 17px;
     }
     @media (max-width: 580px) {
       flex-direction: column;
@@ -1564,6 +1564,7 @@
       @media (max-width: 755px) {
         max-width: 360px;
       }
+
       @media (max-width: 455px) {
         max-width: 273px;
       }

@@ -1,54 +1,49 @@
 function scrollToForm() {
-    const target = document.getElementById("applicationForm");
-    if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+    const formElement = document.getElementById("applicationForm");
+    if (formElement) {
+        formElement.scrollIntoView({ behavior: "smooth" });
     }
 }
 
+const openGiftButton = document.getElementById("openGift");
+const closeGiftButton = document.getElementById("closeGift");
+const recipeModal = document.querySelector(".recipe");
 
-const openButton = document.getElementById('openGift');
-const closeButton = document.getElementById('closeGift');
-const modal = document.querySelector('.recipe');
-
-
-openButton.addEventListener('click', () => {
-    modal.classList.add('active');
+openGiftButton.addEventListener("click", () => {
+    recipeModal.classList.add("active");
 });
 
-
-closeButton.addEventListener('click', () => {
-    modal.classList.remove('active');
+closeGiftButton.addEventListener("click", () => {
+    recipeModal.classList.remove("active");
 });
 
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.classList.remove('active');
+recipeModal.addEventListener("click", (event) => {
+    if (event.target === recipeModal) {
+        recipeModal.classList.remove("active");
     }
 });
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        modal.classList.remove('active');
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+        recipeModal.classList.remove("active");
     }
 });
 
-////
+document.addEventListener("DOMContentLoaded", () => {
+    const weekItems = document.querySelectorAll(".programm__item");
+    const weekTabs = document.querySelectorAll(".accordeon");
 
-document.addEventListener("DOMContentLoaded", function () {
-    const items = document.querySelectorAll(".programm__item");
-    const tabs = document.querySelectorAll(".accordeon");
+    weekItems.forEach(weekItem => {
+        weekItem.addEventListener("click", (event) => {
+            event.preventDefault();
 
-    items.forEach(item => {
-        item.addEventListener("click", function (e) {
-            e.preventDefault();
+            weekItems.forEach(item => item.classList.remove("programm__item--active"));
+            weekTabs.forEach(tab => tab.classList.remove("accordeon--active"));
 
-            items.forEach(i => i.classList.remove("programm__item--active"));
-            tabs.forEach(t => t.classList.remove("accordeon--active"));
+            weekItem.classList.add("programm__item--active");
 
-            item.classList.add("programm__item--active");
-
-            const link = item.querySelector(".programm__link");
-            const targetId = link.getAttribute("href").replace("#", "");
+            const linkElement = weekItem.querySelector(".programm__link");
+            const targetId = linkElement.getAttribute("href").replace("#", "");
             const targetTab = document.getElementById(targetId);
 
             if (targetTab) {
@@ -56,74 +51,50 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
-});
 
-// //acc
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const closeAccordeonsIn = (container) => {
-        container.querySelectorAll(".accordeon__content").forEach(content => {
-            content.classList.remove("open");
-            content.style.maxHeight = null;
-            content.style.padding = "0";
-            content.style.marginTop = "0";
-            content.style.opacity = "0";
-            content.style.visibility = "hidden";
+    const closeAccordeonsInBlock = (accordeonBlock) => {
+        accordeonBlock.querySelectorAll(".accordeon__content").forEach(contentElement => {
+            contentElement.classList.remove("open");
+            contentElement.style.cssText = "max-height:0;padding:0;margin-top:0;opacity:0;visibility:hidden;";
         });
 
-        container.querySelectorAll(".accordeon__button-img").forEach(img => {
-            img.classList.remove("active");
-            const arrow = img.querySelector("svg");
-            if (arrow) arrow.classList.remove("rotated");
+        accordeonBlock.querySelectorAll(".accordeon__button-img").forEach(imageElement => {
+            imageElement.classList.remove("active");
+            const arrowIcon = imageElement.querySelector("svg");
+            if (arrowIcon) arrowIcon.classList.remove("rotated");
         });
     };
 
-    document.querySelectorAll(".accordeon").forEach(tab => {
+    document.querySelectorAll(".accordeon").forEach(accordeonBlock => {
         new MutationObserver(mutations => {
-            mutations.forEach(mutation => {
-                if (mutation.type === "attributes" && mutation.attributeName === "class") {
-                    if (tab.classList.contains("accordeon--active")) {
-                        closeAccordeonsIn(tab);
-                    }
-                }
-            });
-        }).observe(tab, { attributes: true });
+            if (accordeonBlock.classList.contains("accordeon--active")) {
+                closeAccordeonsInBlock(accordeonBlock);
+            }
+        }).observe(accordeonBlock, { attributes: true });
     });
 
-    document.querySelectorAll(".accordeon__button").forEach(button => {
-        button.addEventListener("click", () => {
-            const wrapper = button.closest(".accordeon__wrapper");
-            const content = wrapper.querySelector(".accordeon__content");
-            const img = button.querySelector(".accordeon__button-img");
-            const arrow = img.querySelector("svg");
+    document.querySelectorAll(".accordeon__button").forEach(buttonElement => {
+        buttonElement.addEventListener("click", () => {
+            const wrapperElement = buttonElement.closest(".accordeon__wrapper");
+            const contentElement = wrapperElement.querySelector(".accordeon__content");
+            const imageElement = buttonElement.querySelector(".accordeon__button-img");
+            const arrowIcon = imageElement.querySelector("svg");
 
-            const isOpen = content.classList.contains("open");
+            const isAlreadyOpen = contentElement.classList.contains("open");
 
-            if (isOpen) {
-                content.classList.remove("open");
-                content.style.maxHeight = null;
-                content.style.padding = "0";
-                content.style.marginTop = "0";
-                content.style.opacity = "0";
-                content.style.visibility = "hidden";
-                img.classList.remove("active");
-                arrow.classList.remove("rotated");
+            if (isAlreadyOpen) {
+                contentElement.classList.remove("open");
+                contentElement.style.cssText = "max-height:0;padding:0;margin-top:0;opacity:0;visibility:hidden;";
+                imageElement.classList.remove("active");
+                if (arrowIcon) arrowIcon.classList.remove("rotated");
             } else {
+                const parentAccordeonBlock = buttonElement.closest(".accordeon");
+                closeAccordeonsInBlock(parentAccordeonBlock);
 
-                const parentAccordeon = button.closest(".accordeon");
-                closeAccordeonsIn(parentAccordeon);
-
-
-                content.classList.add("open");
-                content.style.maxHeight = content.scrollHeight + 40 + "px";
-                content.style.padding = "0px 30px 40px 30px";
-                content.style.marginTop = "-20px";
-                content.style.opacity = "1";
-                content.style.visibility = "visible";
-                img.classList.add("active");
-                arrow.classList.add("rotated");
+                contentElement.classList.add("open");
+                contentElement.style.cssText = `max-height:${contentElement.scrollHeight + 40}px;padding:0px 30px 40px 30px;margin-top:-20px;opacity:1;visibility:visible;`;
+                imageElement.classList.add("active");
+                if (arrowIcon) arrowIcon.classList.add("rotated");
             }
         });
     });
