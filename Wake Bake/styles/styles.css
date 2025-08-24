@@ -721,6 +721,10 @@
   line-height: 160%;
   text-align: center;
   color: #312c27;
+  cursor: pointer;
+}
+.promo-block__button:hover {
+  background-color: #ff9138;
 }
 .promo-block__wrapper {
   display: flex;
@@ -1420,9 +1424,36 @@
     gap: 15px;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .accordeon__content {
-    padding-top: 0;
+    gap: 20px;
+    padding: 15px 3px 22px 17px;
+  }
+}
+@media (max-width: 580px) {
+  .accordeon__content {
+    flex-direction: column;
+  }
+}
+@media (max-width: 580px) {
+  .accordeon__content-title {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 580px) {
+  .accordeon__content-text {
+    font-size: 14px;
+  }
+}
+@media (max-width: 580px) {
+  .accordeon__content-tasks {
+    font-size: 14px;
+    max-width: 300px;
+  }
+}
+@media (max-width: 580px) {
+  .accordeon__content-list {
+    gap: 12px;
   }
 }
 @media (max-width: 550px) {
@@ -1472,6 +1503,86 @@
     width: 25px;
     height: 25px;
     padding: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .promo-block {
+    margin-bottom: 70px;
+  }
+}
+@media (max-width: 910px) {
+  .promo-block {
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 580px) {
+  .promo-block__wrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+@media (max-width: 566px) {
+  .promo-block__wrapper {
+    margin: 0;
+  }
+}
+@media (max-width: 510px) {
+  .promo-block__wrapper {
+    gap: 16px;
+    margin-bottom: 17px;
+  }
+}
+@media (max-width: 590px) {
+  .promo-block__price {
+    display: flex;
+    justify-content: space-between;
+    max-width: none;
+    text-align: center;
+  }
+}
+@media (max-width: 510px) {
+  .promo-block__price {
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+  }
+}
+@media (max-width: 510px) {
+  .promo-block__price-one {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 590px) {
+  .promo-block__button {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 540px) {
+  .promo-block__button {
+    max-width: 300px;
+  }
+}
+@media (max-width: 1200px) {
+  .promo-block__sale {
+    min-width: 500px;
+  }
+}
+@media (max-width: 700px) {
+  .promo-block__sale {
+    min-width: 0;
+  }
+}
+@media (max-width: 1120px) {
+  .promo-block__cake {
+    padding-top: 20px;
+  }
+}
+@media (max-width: 910px) {
+  .promo-block__cake {
+    display: none;
   }
 }
 

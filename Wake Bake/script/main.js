@@ -60,12 +60,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // //acc
 
+document.addEventListener("DOMContentLoaded", () => {
+    const closeAllAccordeons = () => {
+        document.querySelectorAll(".accordeon__content").forEach(c => c.style.display = "none");
+        document.querySelectorAll(".accordeon__button-img").forEach(i => i.classList.remove("active"));
+        document.querySelectorAll(".accordeon__button-img svg").forEach(a => a.classList.remove("rotated"));
+    };
 
-document.addEventListener("DOMContentLoaded", function () {
-    const buttons = document.querySelectorAll(".accordeon__button");
 
-    buttons.forEach(button => {
-        button.addEventListener("click", function () {
+    document.querySelectorAll(".accordeon").forEach(tab => {
+        new MutationObserver(mutations => {
+            mutations.forEach(mutation => {
+                if (mutation.type === "attributes" && mutation.attributeName === "class") {
+                    if (tab.classList.contains("accordeon--active")) {
+                        closeAllAccordeons();
+                    }
+                }
+            });
+        }).observe(tab, { attributes: true });
+    });
+
+
+    document.querySelectorAll(".accordeon__button").forEach(button => {
+        button.addEventListener("click", () => {
             const wrapper = button.closest(".accordeon__wrapper");
             const content = wrapper.querySelector(".accordeon__content");
             const img = button.querySelector(".accordeon__button-img");
@@ -73,16 +90,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const isOpen = content.style.display === "flex";
 
-            if (isOpen) {
-                content.style.display = "none";
-                arrow.classList.remove("rotated");
-                img.classList.remove("active");
-            } else {
-                content.style.display = "flex";
-                arrow.classList.add("rotated");
-                img.classList.add("active");
-            }
+            content.style.display = isOpen ? "none" : "flex";
+            img.classList.toggle("active", !isOpen);
+            arrow.classList.toggle("rotated", !isOpen);
         });
     });
 });
-
