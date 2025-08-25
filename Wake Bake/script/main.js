@@ -120,4 +120,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     switchTab('tabOne');
-}); 
+});
+
+
+//gallery
+
+const swiper = new Swiper('.gallery__slider', {
+
+    spaceBetween: 32,
+    slidesPerView: 4,
+
+    pagination: {
+        el: '.gallery__pagination',
+        type: 'fraction',
+    },
+
+    navigation: {
+        nextEl: '.gallery__next',
+        prevEl: '.gallery__prev',
+    },
+    breakpoints: {
+        200: {
+            slidesPerView: 1,
+            spaceBetween: 10
+        },
+        400: {
+            slidesPerView: 2,
+            spaceBetween: 10
+        },
+
+        700: {
+            slidesPerView: 3,
+            spaceBetween: 20
+        },
+
+        1010: {
+            slidesPerView: 4,
+            spaceBetween: 10
+        },
+
+        1123: {
+            slidesPerView: 4,
+            spaceBetween: 40
+        }
+    }
+
+
+});

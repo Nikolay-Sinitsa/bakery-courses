@@ -895,6 +895,137 @@
   }
 }
 
+.gallery {
+  &__wrapper {
+    margin-bottom: 40px;
+  }
+  &__head {
+    display: flex;
+  }
+  &__img {
+    align-self: center;
+    justify-self: center;
+    padding-left: 76px;
+  }
+  &__img img {
+    width: 100%;
+  }
+  &__content {
+    display: flex;
+    align-items: end;
+    gap: 74px;
+    padding: 26px 0 0 110px;
+  }
+  &__info {
+    width: 100%;
+
+    max-width: 380px;
+  }
+  &__text {
+    &-title {
+      font-family: "Gabriola", sans-serif;
+      font-weight: 400;
+      font-size: 74px;
+      line-height: 0.82;
+      color: #1f1711;
+      margin-bottom: 20px;
+    }
+    &-text {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #312c27;
+    }
+  }
+  &__nav {
+    position: relative;
+    gap: 98px;
+    display: flex;
+    align-items: center;
+  }
+  &__next {
+    flex-shrink: 0;
+    cursor: pointer;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid #ffa55c;
+
+    &:hover {
+      border: #ffa55c;
+      background: #ffa55c;
+    }
+    &:hover path {
+      fill: #fff9f4;
+    }
+  }
+  &__prev {
+    flex-shrink: 0;
+    cursor: pointer;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1.5px solid #ffa55c;
+    &:hover {
+      background: #ffa55c;
+    }
+    &:hover path {
+      fill: #fff9f4;
+    }
+  }
+  &__pagination {
+    position: absolute;
+    display: flex;
+    font-family: "Gabriola", sans-serif;
+    font-weight: 400;
+    font-size: 42px;
+    line-height: 0.9;
+    text-align: center;
+    color: #312c27;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    width: auto;
+    transform: translate(-50%, -50%);
+  }
+  &__slide {
+    overflow: hidden;
+    border-radius: 20px;
+    img {
+      width: 100%;
+    }
+  }
+}
+.swiper-button-disabled.gallery__prev,
+.swiper-button-disabled.gallery__next {
+  border: 1.5px solid #e1d9e1;
+  cursor: auto;
+}
+
+.swiper-button-disabled.gallery__prev path,
+.swiper-button-disabled.gallery__next path {
+  fill: #e1d9e1;
+}
+
+.swiper-button-disabled.gallery__prev:hover,
+.swiper-button-disabled.gallery__next:hover {
+  background: transparent;
+}
+
+.swiper-button-disabled.gallery__prev:hover path,
+.swiper-button-disabled.gallery__next:hover path {
+  fill: #e1d9e1;
+}
+
 .application {
   display: none;
   background: url(../media/sect-application/fon-banner.jpg) 50% 100% / cover
@@ -1615,7 +1746,7 @@
   }
   @media (max-width: 910px) {
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
   }
   &__wrapper {
     @media (max-width: 580px) {
@@ -1673,6 +1804,75 @@
 
     @media (max-width: 910px) {
       display: none;
+    }
+  }
+}
+
+.gallery {
+  &__content {
+    @media (max-width: 1175px) {
+      padding-left: 3%;
+      gap: 20px;
+    }
+    @media (max-width: 818px) {
+      position: relative;
+    }
+    @media (max-width: 551px) {
+      flex-direction: column;
+      max-width: none;
+      margin: 0 auto;
+    }
+  }
+  &__head {
+    @media (max-width: 818px) {
+      position: relative;
+      z-index: 1;
+    }
+  }
+  &__wrapper {
+    @media (max-width: 700px) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__text {
+    &-title {
+      @media (max-width: 551px) {
+        margin-bottom: 10px;
+        font-size: 54px;
+        text-align: center;
+      }
+    }
+    &-text {
+      @media (max-width: 551px) {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+    }
+  }
+  &__img {
+    @media (max-width: 1300px) {
+      padding-left: 0;
+    }
+    @media (max-width: 818px) {
+      transform: translate(377px, -2px);
+      top: 0;
+      left: 0;
+      z-index: 8;
+      position: absolute;
+      max-width: 250px;
+    }
+    @media (max-width: 665px) {
+      max-width: 200px;
+      transform: translate(348px, 62px);
+    }
+    @media (max-width: 570px) {
+      display: none;
+    }
+  }
+  &__info {
+    @media (max-width: 665px) {
+      max-width: 330px;
     }
   }
 }

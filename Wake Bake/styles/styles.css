@@ -820,6 +820,132 @@
   width: 100%;
 }
 
+.gallery__wrapper {
+  margin-bottom: 40px;
+}
+.gallery__head {
+  display: flex;
+}
+.gallery__img {
+  align-self: center;
+  justify-self: center;
+  padding-left: 76px;
+}
+.gallery__img img {
+  width: 100%;
+}
+.gallery__content {
+  display: flex;
+  align-items: end;
+  gap: 74px;
+  padding: 26px 0 0 110px;
+}
+.gallery__info {
+  width: 100%;
+  max-width: 380px;
+}
+.gallery__text-title {
+  font-family: "Gabriola", sans-serif;
+  font-weight: 400;
+  font-size: 74px;
+  line-height: 0.82;
+  color: #1f1711;
+  margin-bottom: 20px;
+}
+.gallery__text-text {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #312c27;
+}
+.gallery__nav {
+  position: relative;
+  gap: 98px;
+  display: flex;
+  align-items: center;
+}
+.gallery__next {
+  flex-shrink: 0;
+  cursor: pointer;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #ffa55c;
+}
+.gallery__next:hover {
+  border: #ffa55c;
+  background: #ffa55c;
+}
+.gallery__next:hover path {
+  fill: #fff9f4;
+}
+.gallery__prev {
+  flex-shrink: 0;
+  cursor: pointer;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid #ffa55c;
+}
+.gallery__prev:hover {
+  background: #ffa55c;
+}
+.gallery__prev:hover path {
+  fill: #fff9f4;
+}
+.gallery__pagination {
+  position: absolute;
+  display: flex;
+  font-family: "Gabriola", sans-serif;
+  font-weight: 400;
+  font-size: 42px;
+  line-height: 0.9;
+  text-align: center;
+  color: #312c27;
+  top: 50%;
+  left: 50%;
+  bottom: auto;
+  width: auto;
+  transform: translate(-50%, -50%);
+}
+.gallery__slide {
+  overflow: hidden;
+  border-radius: 20px;
+}
+.gallery__slide img {
+  width: 100%;
+}
+
+.swiper-button-disabled.gallery__prev,
+.swiper-button-disabled.gallery__next {
+  border: 1.5px solid #e1d9e1;
+  cursor: auto;
+}
+
+.swiper-button-disabled.gallery__prev path,
+.swiper-button-disabled.gallery__next path {
+  fill: #e1d9e1;
+}
+
+.swiper-button-disabled.gallery__prev:hover,
+.swiper-button-disabled.gallery__next:hover {
+  background: transparent;
+}
+
+.swiper-button-disabled.gallery__prev:hover path,
+.swiper-button-disabled.gallery__next:hover path {
+  fill: #e1d9e1;
+}
+
 .application {
   display: none;
   background: url(../media/sect-application/fon-banner.jpg) 50% 100%/cover no-repeat;
@@ -1535,7 +1661,7 @@
 @media (max-width: 910px) {
   .promo-block {
     justify-content: center;
-    margin-bottom: 50px;
+    margin-bottom: 10px;
   }
 }
 @media (max-width: 580px) {
@@ -1604,6 +1730,80 @@
 @media (max-width: 910px) {
   .promo-block__cake {
     display: none;
+  }
+}
+
+@media (max-width: 1175px) {
+  .gallery__content {
+    padding-left: 3%;
+    gap: 20px;
+  }
+}
+@media (max-width: 818px) {
+  .gallery__content {
+    position: relative;
+  }
+}
+@media (max-width: 551px) {
+  .gallery__content {
+    flex-direction: column;
+    max-width: none;
+    margin: 0 auto;
+  }
+}
+@media (max-width: 818px) {
+  .gallery__head {
+    position: relative;
+    z-index: 1;
+  }
+}
+@media (max-width: 700px) {
+  .gallery__wrapper {
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 551px) {
+  .gallery__text-title {
+    margin-bottom: 10px;
+    font-size: 54px;
+    text-align: center;
+  }
+}
+@media (max-width: 551px) {
+  .gallery__text-text {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+@media (max-width: 1300px) {
+  .gallery__img {
+    padding-left: 0;
+  }
+}
+@media (max-width: 818px) {
+  .gallery__img {
+    transform: translate(377px, -2px);
+    top: 0;
+    left: 0;
+    z-index: 8;
+    position: absolute;
+    max-width: 250px;
+  }
+}
+@media (max-width: 665px) {
+  .gallery__img {
+    max-width: 200px;
+    transform: translate(348px, 62px);
+  }
+}
+@media (max-width: 570px) {
+  .gallery__img {
+    display: none;
+  }
+}
+@media (max-width: 665px) {
+  .gallery__info {
+    max-width: 330px;
   }
 }
 
