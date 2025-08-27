@@ -1026,6 +1026,32 @@
   fill: #e1d9e1;
 }
 
+.reviews {
+  &__head {
+    align-items: end;
+    justify-content: space-between;
+    display: flex;
+    &-title {
+      margin-bottom: 20px;
+      font-family: "Gabriola", sans-serif;
+      font-weight: 400;
+      font-size: 74px;
+      line-height: 0.8;
+      color: #1f1711;
+    }
+    &-text {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #1f1711;
+    }
+  }
+  &__block {
+    max-width: 632px;
+  }
+}
+
 .application {
   display: none;
   background: url(../media/sect-application/fon-banner.jpg) 50% 100% / cover
