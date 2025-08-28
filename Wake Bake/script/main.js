@@ -167,3 +167,25 @@ const swiper = new Swiper('.gallery__slider', {
 
 
 });
+
+
+const slider = new Swiper('.reviews__slider', {
+
+
+    spaceBetween: 0,
+    slidesPerView: 2,
+    centeredSlides: true,
+    initialSlide: 1,
+
+
+    navigation: {
+        nextEl: '.reviews__nav-next',
+        prevEl: '.reviews__nav-prev',
+    },
+
+
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true,
+    },
+});
