@@ -600,15 +600,19 @@
     width: 137px;
     box-shadow: 0 4px 20px 0 rgba(206, 195, 185, 0.3);
     transition: background 0.8s ease;
+    transition: all 0.5s ease;
     &--active {
+      // margin-bottom: 20px;
       background: #ffe0cb;
       box-shadow: none;
     }
     &:hover {
+      transition: all 0.5s ease;
       background: #ffe0cb;
       box-shadow: 0 4px 20px 0 rgba(206, 195, 185, 0.3);
     }
     &:active {
+      transition: all 0.5s ease;
       background: #ffe0cb;
       box-shadow: none;
     }
@@ -631,9 +635,8 @@
   gap: 30px;
   margin-bottom: 40px;
   &--active {
+    transition: all 0.5s ease;
     max-height: 900px;
-    // padding: 0px 30px 40px 30px;
-    margin-top: -20px;
     opacity: 1;
     visibility: visible;
     display: flex;
@@ -657,6 +660,7 @@
     width: 100%;
     cursor: pointer;
     &:hover &-img {
+      transition: all 0.5s ease;
       background: #ffa55c;
 
       svg {
@@ -1217,6 +1221,7 @@
     gap: 84px;
   }
   &__img {
+    max-width: 579px;
     img {
       width: 100%;
     }
@@ -1255,6 +1260,17 @@
     max-width: 420px;
     margin-bottom: 10px;
     transition: all 0.4s ease;
+    &:nth-child(2) {
+      margin-bottom: 20px;
+    }
+    &:hover {
+      transition: all 0.4s ease;
+      border-color: #ffa55c;
+      &::placeholder {
+        color: #ffa55c;
+        transition: all 0.4s ease;
+      }
+    }
   }
   &__form {
     &-label {
@@ -1304,12 +1320,69 @@
         }
       }
     }
+    &-text {
+      max-width: 260px;
+      margin-bottom: 20px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #312c27;
+      a {
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+      }
+    }
+  }
+  &__checkbox {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid #ac907a;
+    transition: all 0.4s ease;
+    border-radius: 4px;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+    &:hover {
+      border-color: #ffa55c;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("../media/sect-application/Vector.svg") center no-repeat;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &:hover {
+      border-color: #ffa55c;
+    }
+
+    &:checked {
+      background-color: #ffa55c;
+      border-color: #ffa55c;
+    }
+
+    &:checked::after {
+      opacity: 1;
+    }
+
+    &-label {
+      display: flex;
+      align-items: start;
+      gap: 5px;
+      max-width: 288px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
   }
   &__button {
     color: #312c27;
     border-radius: 60px;
     padding: 18px 36px;
-    max-width: 308px;
+    max-width: 420px;
     width: 100%;
     background: #ffa55c;
     font-weight: 500;
@@ -1333,14 +1406,6 @@
     grid-template-columns: 0.9fr 0.9fr 0.9fr auto;
   }
   &__section {
-    &--socials {
-    }
-    &--nav {
-    }
-    &--location {
-    }
-    &--contact {
-    }
   }
   &__logo {
     &-img {
