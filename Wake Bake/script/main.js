@@ -173,9 +173,10 @@ const slider = new Swiper('.reviews__slider', {
 
 
     spaceBetween: 0,
-    slidesPerView: 2,
+    slidesPerView: 1.5,
     centeredSlides: true,
     initialSlide: 1,
+    speed: 900,
 
 
     navigation: {
@@ -188,4 +189,21 @@ const slider = new Swiper('.reviews__slider', {
         el: '.swiper-scrollbar',
         draggable: true,
     },
+    breakpoints: {
+        300: {
+            slidesPerView: 1,
+
+        },
+
+
+        700: {
+            slidesPerView: 1.5,
+
+        },
+
+        1201: {
+            slidesPerView: 2.1,
+
+        }
+    }
 });

@@ -141,13 +141,24 @@
                   class="recipe__cupcakes-img"
                 />
               </div>
+
               <div class="recipe__close">
                 <button id="closeGift" class="recipe__wrapper">
-                  <img
-                    class="recipe__img"
-                    src="./media/recipe/Vector.svg"
-                    alt="cupcakes"
-                  />
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M0.757935 11.2433L6.00094 6.00032L11.2439 11.2433M11.2439 0.757324L5.99993 6.00032L0.757935 0.757324"
+                      stroke="#E1D9E1"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                 </button>
               </div>
               <h4 class="recipe__title">
@@ -156,20 +167,19 @@
               <p class="recipe__text">
                 Оставь свой e-mail, и мы вышлем рецепт на почту
               </p>
-              <form action="#" method="post" class="recipe__form">
-                <div class="recipe__form-field">
+              <form class="recipe__form">
+                <label class="recipe__form-label">
+                  <span>Введите E-mail</span>
                   <input
                     type="email"
-                    id="giftEmail"
                     class="recipe__form-input"
-                    name="email"
-                    required
-                    placeholder=" "
+                    placeholder="E-mail "
                   />
-                  <label for="giftEmail" class="recipe__form-label"></label>
-                </div>
+                </label>
+                <button type="submit" class="recipe__button">
+                  Получить подарок
+                </button>
               </form>
-              <button class="recipe__button">Получить подарок</button>
             </div>
           </div>
         </div>
@@ -1433,61 +1443,40 @@
 
     <section id="applicationForm" class="application">
       <div class="container application__container">
-        <div class="application__wrapper">
-          <div class="application__cake">
-            <div class="application__img">
-              <img
-                src="./media/sect-application/image 16.png"
-                alt="cake"
-                class="application__img-cake"
-              />
-            </div>
-          </div>
-          <div class="application__courses">
-            <h3 class="application__courses-title">
-              Оставить заявку на обучение
-            </h3>
-            <p class="application__courses-text">
+        <div class="application__img">
+          <img src="./media/sect-application/cake.png" alt="" />
+        </div>
+        <div class="application__block">
+          <div class="application__text">
+            <h2 class="application__text-title">Оставить заявку на обучение</h2>
+            <p class="application__text-text">
               Заполни контактные данные, и наш менеджер свяжется с тобой в
               ближайшее время
             </p>
-            <form action="#" method="post" class="application__form">
-              <div class="application__form-field">
-                <input
-                  type="text"
-                  id="nameUser"
-                  class="application__form-input"
-                  placeholder=" "
-                  required
-                />
-                <label for="nameUser" class="application__form-label"></label>
-              </div>
-
-              <div class="application__form-field">
-                <input
-                  type="number"
-                  id="telUser"
-                  class="application__form-input application__form-tel"
-                  placeholder=" "
-                  required
-                />
-                <label for="telUser" class="application__form-label"></label>
-              </div>
-
-              <div class="application__checkbox">
-                <label>
-                  <input type="checkbox" required />
-                  Нажимая на кнопку, вы соглашаетесь<br /><span
-                    >с <a href="#">политикой конфиденциальности</a></span
-                  >
-                </label>
-              </div>
-
-              <button type="submit" class="application__button">
-                Записаться на курс
-              </button>
-            </form>
           </div>
+          <form class="application__form">
+            <label class="application__form-label">
+              <span>Введите имя</span>
+              <input
+                type="email"
+                class="application__form-input"
+                placeholder="Имя "
+              />
+            </label>
+            <input
+              class="application__input"
+              placeholder="Телефон"
+              type="tel"
+            />
+            <label type="checkbox" class="application__check-label">
+              <input type="checkbox" class="application__checkbox" />
+              Нажимая на кнопку, вы соглашаетесь С
+              <a href="#" target="_blank"> политикой конфиденциальности</a>
+            </label>
+            <button type="button" class="application__button">
+              Записаться на курс
+            </button>
+          </form>
         </div>
       </div>
     </section>
