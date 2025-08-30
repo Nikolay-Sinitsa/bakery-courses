@@ -1137,20 +1137,35 @@
 
 .application {
   padding: 123px 0 137px;
-  background: url(../media/sect-application/fon-banner.jpg) 50% 100%/cover no-repeat;
+  background: url(../media/sect-application/fon-banner.jpg) 50% 0%/cover no-repeat;
 }
 .application__container {
+  position: relative;
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 84px;
 }
+.application__container::after {
+  content: url("../media/sect-application/3.png");
+  position: absolute;
+  top: 7%;
+  right: 0;
+}
+.application__container::before {
+  content: url("../media/sect-application/3-blur.png");
+  position: absolute;
+  top: -4%;
+  left: 0;
+}
 .application__img {
-  max-width: 579px;
+  max-width: 576px;
 }
 .application__img img {
   width: 100%;
+  filter: drop-shadow(0px 4px 30px rgba(198, 176, 161, 0.3019607843));
 }
 .application__block {
+  position: relative;
   max-width: 420px;
 }
 .application__text-title {
@@ -2133,6 +2148,82 @@
     justify-content: center;
   }
 }
+@media (max-width: 900px) {
+  .application {
+    padding-bottom: 70px;
+  }
+}
+@media (max-width: 1200px) {
+  .application__container {
+    align-items: center;
+    gap: 40px;
+  }
+  .application__container::after {
+    right: 7%;
+    top: -16%;
+  }
+}
+@media (max-width: 730px) {
+  .application__container::before {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .application__img {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .application__block {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 700px) {
+  .application__text-text {
+    text-align: center;
+  }
+}
+@media (max-width: 570px) {
+  .application__text-text {
+    max-width: 250px;
+    font-size: 14px;
+    margin: 0 auto 10px;
+  }
+}
+@media (max-width: 700px) {
+  .application__text-title {
+    text-align: center;
+  }
+}
+@media (max-width: 570px) {
+  .application__text-title {
+    font-size: 55px;
+  }
+}
+@media (max-width: 570px) {
+  .application__button {
+    max-width: 250px;
+  }
+}
+@media (max-width: 570px) {
+  .application__input {
+    width: 250px;
+  }
+}
+@media (max-width: 570px) {
+  .application__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media (max-width: 570px) {
+  .application__form-input {
+    max-width: 250px;
+  }
+}
+
 @media (max-width: 1140px) {
   .footer {
     padding: 10px 0 20px;

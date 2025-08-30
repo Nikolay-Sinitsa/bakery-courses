@@ -1212,21 +1212,36 @@
 
 .application {
   padding: 123px 0 137px;
-  background: url(../media/sect-application/fon-banner.jpg) 50% 100% / cover
+  background: url(../media/sect-application/fon-banner.jpg) 50% 0% / cover
     no-repeat;
 
   &__container {
+    position: relative;
     display: flex;
-    align-items: center;
+    align-items: end;
     gap: 84px;
+    &::after {
+      content: url("../media/sect-application/3.png");
+      position: absolute;
+      top: 7%;
+      right: 0;
+    }
+    &::before {
+      content: url("../media/sect-application/3-blur.png");
+      position: absolute;
+      top: -4%;
+      left: 0;
+    }
   }
   &__img {
-    max-width: 579px;
+    max-width: 576px;
     img {
       width: 100%;
+      filter: drop-shadow(0px 4px 30px #c6b0a14d);
     }
   }
   &__block {
+    position: relative;
     max-width: 420px;
   }
   &__text {
@@ -2168,6 +2183,84 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+      }
+    }
+  }
+}
+
+.application {
+  @media (max-width: 900px) {
+    padding-bottom: 70px;
+  }
+  &__container {
+    @media (max-width: 1200px) {
+      align-items: center;
+      gap: 40px;
+      &::after {
+        right: 7%;
+        top: -16%;
+      }
+    }
+    @media (max-width: 900px) {
+      &::after {
+      }
+    }
+    @media (max-width: 730px) {
+      &::before {
+        display: none;
+      }
+    }
+  }
+  &__img {
+    @media (max-width: 900px) {
+      display: none;
+    }
+  }
+  &__block {
+    @media (max-width: 900px) {
+      margin: 0 auto;
+    }
+  }
+  &__text {
+    &-text {
+      @media (max-width: 700px) {
+        text-align: center;
+      }
+      @media (max-width: 570px) {
+        max-width: 250px;
+        font-size: 14px;
+        margin: 0 auto 10px;
+      }
+    }
+    &-title {
+      @media (max-width: 700px) {
+        text-align: center;
+      }
+      @media (max-width: 570px) {
+        font-size: 55px;
+      }
+    }
+  }
+  &__button {
+    @media (max-width: 570px) {
+      max-width: 250px;
+    }
+  }
+  &__input {
+    @media (max-width: 570px) {
+      width: 250px;
+    }
+  }
+  &__form {
+    @media (max-width: 570px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    &-input {
+      @media (max-width: 570px) {
+        max-width: 250px;
       }
     }
   }
