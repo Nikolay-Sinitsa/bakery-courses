@@ -1,5 +1,5 @@
 function scrollToForm() {
-    const formElement = document.getElementById("applicationForm");
+    const formElement = document.getElementById("application");
     if (formElement) {
         formElement.scrollIntoView({ behavior: "smooth" });
     }
